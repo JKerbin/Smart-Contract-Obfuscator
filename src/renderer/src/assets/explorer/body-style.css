@@ -1,0 +1,56 @@
+.explorer-container {
+    background-color: var(--board-color);
+    display: flex;
+    border-right: 3px solid var(--bar-color);
+    width: 20vw;
+    height: 90vh;
+}
+
+.left-bar {
+    background-color: var(--bar-color);
+    border-top: 3px solid #8cba93;
+    width: 4vw;
+    height: 90vh;
+}
+
+.selector {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 4vw;
+    height: 4vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.selector svg {
+    width: 35px;
+    height: 35px;
+    fill: var(--font-color);
+}
+
+.selector:hover {
+    border-left: 3px solid #8cba93;
+}
+
+.viewer {
+    border-right: 3px solid var(--bar-color);
+    width: 16vw;
+    height: 90vh;
+}
+
+.head-bar {
+    width: 16vw;
+    height: 30px;
+    border-top: 1px solid #8cba93;
+    background-color: var(--bar-color);
+    display: flex;
+    align-items: center;
+
+}
+
+.head-bar span {
+    margin-left: 20px;
+    font-weight: 700;
+    color: var(--font-color);
+}

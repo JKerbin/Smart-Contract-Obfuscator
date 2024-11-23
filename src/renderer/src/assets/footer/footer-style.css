@@ -1,0 +1,20 @@
+.footer {
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bar-color);
+    overflow: hidden;
+    border-top: 1px solid #8cba93;
+}
+
+.logo {
+    width: 2.5vh;
+    height: 5.vh;
+    opacity: 0.4;
+}
+
+.version {
+    font-weight: 700;
+    color: var(--title-color);
+    margin-left: 10px;
+}

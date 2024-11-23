@@ -1,0 +1,83 @@
+.terminal-interface {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    background-color: var(--board-color);
+}
+
+.head-bar {
+    width: 80vw;
+    height: 30px;
+    background-color: var(--bar-color);
+    color: var(--font-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.terminal-status {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    left: 77vw;
+}
+
+.terminal-status svg {
+    height: 15px;
+    width: 15px;
+    fill: #8cba93
+}
+
+.terminal-status svg:hover {
+    height: 15px;
+    width: 15px;
+    fill: var(--font-color)
+}
+
+.unshow-terminal svg {
+    transform: rotate(180deg);
+}
+
+.terminal-interface .head-bar span {
+    margin-left: 20px;
+}
+
+.content {
+    height: 27vh;
+    width: 80vw;
+    overflow-y: auto;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: var(--board-color);
+    color: var(--font-color);
+    border-top: 1px solid #8cba93;
+}
+
+.content-inner {
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 0;
+}
+
+.terminal-line {
+    font-family: monospace;
+    white-space: pre-wrap;
+    font-weight: 700;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background-color: #8cba93;
+    border-radius: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background-color: var(--bar-color);
+}
