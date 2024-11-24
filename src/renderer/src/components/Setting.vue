@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-// 修改主题色的方法
+// Change themes
 const changeTheme = (theme) => {
     if (theme === "light") {
         document.documentElement.style.setProperty("--board-color", "#fff");

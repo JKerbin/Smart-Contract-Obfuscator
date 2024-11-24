@@ -5,6 +5,11 @@ import path from 'path';
 
 let terminalProcess: ChildProcessWithoutNullStreams | null = null;
 
+/**
+ * Import new project
+ * @param mainWindow Window object
+ * @param directoryPath ProjectDir
+ */
 export const importProject = async (mainWindow, directoryPath) => {
     mainWindow.webContents.send('terminal-clear');
     mainWindow.webContents.send('terminal-output', "Event: Import new project");
@@ -74,6 +79,12 @@ export const importProject = async (mainWindow, directoryPath) => {
     }
 };
 
+/**
+ * Delete selected project
+ * @param mainWindow Window object
+ * @param directoryPath ProjectDir
+ * @param projectName Selected project
+ */
 export const deleteProject = async (mainWindow, directoryPath, projectName) => {
     // Get the file name without extension
     const projectFolder = path.basename(projectName, path.extname(projectName));
@@ -106,15 +117,18 @@ export const deleteProject = async (mainWindow, directoryPath, projectName) => {
     }
 };
 
-
+/**
+ * Open explorer of projects
+ * @param directoryPath ProjectDir
+ */
 export const openExplorer = (directoryPath) => {
     const projectsDir = path.resolve(directoryPath);
     console.log(projectsDir);
 
-    // 根据平台选择正确的命令
+    // Platform: Windows？
     const openCommand = process.platform === 'win32' ? 'explorer' : process.platform === 'darwin' ? 'open' : 'xdg-open';
 
-    // 打开文件资源管理器
+    // Open file explorer
     exec(`${openCommand} "${projectsDir}"`, (error) => {
         if (error) {
             console.error(`Failed to open file explorer: ${error.message}`);

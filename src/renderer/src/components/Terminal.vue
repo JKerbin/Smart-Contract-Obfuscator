@@ -23,7 +23,6 @@
         </div>
         <div v-if="terminalShow === true" class="content custom-scroll">
             <div class="content-inner">
-                <!-- 使用 v-for 循环显示每一行输出 -->
                 <div v-for="(line, index) in terminalOutput" :key="index" class="terminal-line">
                     {{ line }}
                 </div>
@@ -39,10 +38,10 @@ import { useMainStore } from '../stores/mainStore';
 const mainStore = useMainStore();
 const terminalShow = computed(() => mainStore.terminalShow);
 
-// 保存控制台输出内容
+// The output of the terminal
 const terminalOutput = ref([]);
 
-// 监听主进程传来的控制台输出
+// Listen to main process
 onMounted(() => {
     electron.ipcRenderer.on('terminal-clear', (event, data) => {
         terminalOutput.value = [];
@@ -50,10 +49,9 @@ onMounted(() => {
 
     electron.ipcRenderer.on('terminal-output', (event, data) => {
         mainStore.setTerminalShow(true)
-        // 将新数据加入输出数组，确保滚动显示
         terminalOutput.value.push(data);
 
-        // 保持滚动到最新内容
+        // Keep showing the newest
         setTimeout(() => {
             const contentElement = document.querySelector('.content.custom-scroll');
             if (contentElement) {
@@ -63,7 +61,7 @@ onMounted(() => {
     });
 });
 
-// 清理监听器
+// Clear listener
 onUnmounted(() => {
     electron.ipcRenderer.removeAllListeners('terminal-output');
 });
