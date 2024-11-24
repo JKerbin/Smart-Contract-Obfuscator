@@ -4,6 +4,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import { loadInFile, getProjects } from './utils/projectsReader';
 import { importProject, deleteProject, openExplorer } from './utils/projectsHandler';
+import { obfuscateTargetProject } from "./utils/obfuscatior";
 
 let mainWindow;
 
@@ -60,6 +61,10 @@ function createWindow(): void {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  ipcMain.handle('obfuscate', async (_event, directoryPath: string, projectName: string) => {
+    obfuscateTargetProject(mainWindow, directoryPath, projectName);
+  });
+
   ipcMain.handle('import', async (_event, directoryPath: string) => {
     importProject(mainWindow, directoryPath);
   });

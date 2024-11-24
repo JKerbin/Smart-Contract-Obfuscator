@@ -67,8 +67,7 @@ export const importProject = async (mainWindow, directoryPath) => {
 
             // Listen for process close
             terminalProcess.on('close', (code: number) => {
-                mainWindow.webContents.send('terminal-output', "\n");
-                mainWindow.webContents.send('terminal-output', `Terminal exited with code ${code}`);
+                mainWindow.webContents.send('terminal-output', `\nTerminal exited with code ${code}`);
                 terminalProcess = null; // Reset the process variable
             });
         } catch (error) {
@@ -123,7 +122,6 @@ export const deleteProject = async (mainWindow, directoryPath, projectName) => {
  */
 export const openExplorer = (directoryPath) => {
     const projectsDir = path.resolve(directoryPath);
-    console.log(projectsDir);
 
     // Platform: Windows？
     const openCommand = process.platform === 'win32' ? 'explorer' : process.platform === 'darwin' ? 'open' : 'xdg-open';

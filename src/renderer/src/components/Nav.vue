@@ -42,7 +42,7 @@
             </div>
 
             <div class="button-container">
-                <button class="button" id="obfuscate">
+                <button class="button" id="obfuscate" @click="obfuscateTargetProject()">
                     <svg t="1732105513802" class="icon" viewBox="0 0 1024 1024" version="1.1"
                         xmlns="http://www.w3.org/2000/svg" p-id="4280" width="200" height="200">
                         <path
@@ -94,6 +94,11 @@ function minimize() {
 function exit() {
     // Exit app
     electron.ipcRenderer.invoke('exit');
+}
+
+function obfuscateTargetProject() {
+    // Obfuscate target project
+    electron.ipcRenderer.invoke('obfuscate', mainStore.projectsDirectoryPath, mainStore.selectedFile.folder);
 }
 </script>
 
