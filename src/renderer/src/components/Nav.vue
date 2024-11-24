@@ -12,10 +12,11 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li><a class="dropdown-item" @click="importProject()">Import</a></li>
-                    <li><a class="dropdown-item" @click="reload()">Reload</a></li>
+                    <li><a class="dropdown-item" @click="explorer()">Explorer</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
+                    <li><a class="dropdown-item" @click="reload()">Reload</a></li>
                     <li><a class="dropdown-item" @click="minimize()">Minimize</a></li>
                     <li><a class="dropdown-item" @click="exit()">Exit</a></li>
                 </ul>
@@ -73,6 +74,11 @@ const mainStore = useMainStore();
 function importProject() {
     // import new project
     electron.ipcRenderer.invoke('import', mainStore.projectsDirectoryPath);
+}
+
+function explorer() {
+    // open explorer
+    electron.ipcRenderer.invoke('explorer', mainStore.projectsDirectoryPath);
 }
 
 function reload() {

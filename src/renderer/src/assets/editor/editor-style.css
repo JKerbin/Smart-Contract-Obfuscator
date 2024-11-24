@@ -23,6 +23,24 @@
     border-bottom: 1px solid #8cba93;
 }
 
+.close-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.close-btn svg {
+    fill: #8cba93;
+}
+
+.close-btn svg:hover {
+    fill: var(--font-color);
+}
+
 .text-content {
     margin-left: 25px;
     margin-top: 10px;
@@ -44,7 +62,7 @@
     color: var(--font-color);
 }
 
-.title span{
+.title span {
     margin-left: 15px;
     margin-right: 15px;
 }

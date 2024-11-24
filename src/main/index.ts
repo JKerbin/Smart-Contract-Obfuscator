@@ -3,7 +3,7 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import { loadInFile, getProjects } from './utils/projectsReader';
-import { importProject, deleteProject } from './utils/projectsHandler';
+import { importProject, deleteProject, openExplorer } from './utils/projectsHandler';
 
 let mainWindow;
 
@@ -62,6 +62,10 @@ function createWindow(): void {
 app.whenReady().then(() => {
   ipcMain.handle('import', async (_event, directoryPath: string) => {
     importProject(mainWindow, directoryPath);
+  });
+
+  ipcMain.handle('explorer', (_event, directoryPath: string) => {
+    openExplorer(directoryPath);
   });
 
   ipcMain.handle('delete-projects', async (_event, directoryPath: string, projectName: string) => {

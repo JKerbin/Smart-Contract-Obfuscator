@@ -1,5 +1,5 @@
 import { dialog } from 'electron';
-import { spawn, ChildProcessWithoutNullStreams } from 'child_process';
+import { spawn, ChildProcessWithoutNullStreams, exec } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
@@ -104,4 +104,22 @@ export const deleteProject = async (mainWindow, directoryPath, projectName) => {
         mainWindow.webContents.send('terminal-output', "Possible reasons include lack of administrator rights");
 
     }
+};
+
+
+export const openExplorer = (directoryPath) => {
+    const projectsDir = path.resolve(directoryPath);
+    console.log(projectsDir);
+
+    // 根据平台选择正确的命令
+    const openCommand = process.platform === 'win32' ? 'explorer' : process.platform === 'darwin' ? 'open' : 'xdg-open';
+
+    // 打开文件资源管理器
+    exec(`${openCommand} "${projectsDir}"`, (error) => {
+        if (error) {
+            console.error(`Failed to open file explorer: ${error.message}`);
+        } else {
+            console.log(`File explorer opened at: ${projectsDir}`);
+        }
+    });
 };
