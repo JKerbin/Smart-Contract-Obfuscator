@@ -3,7 +3,7 @@
         <div class="logo">
             <Logo />
         </div>
-        <div class="version">alpha-0.0.1</div>
+        <div class="version">SCO version: alpha-1.0.0</div>
     </footer>
 </template>
 
