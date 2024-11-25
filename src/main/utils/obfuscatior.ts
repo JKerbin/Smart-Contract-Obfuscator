@@ -31,7 +31,7 @@ export const obfuscateTargetProject = async (mainWindow, directoryPath, projectN
         }, 1000);
 
         setTimeout(() => {
-            terminalProcess = spawn('bin\\solc\\solc-windows.exe', ['--ast-compact-json', '-o', targetProject, `${targetProject}\\output-code.sol`], {
+            terminalProcess = spawn('bin\\solc\\solc-windows.exe', ['--ast-compact-json', '--overwrite', '-o', targetProject, `${targetProject}\\output-code.sol`], {
                 shell: true, // Enable shell commands
             });
 
