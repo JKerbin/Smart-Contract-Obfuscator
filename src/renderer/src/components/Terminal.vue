@@ -21,10 +21,23 @@
                 </svg>
             </div>
         </div>
-        <div v-if="terminalShow === true" class="content custom-scroll">
-            <div class="content-inner">
-                <div v-for="(line, index) in terminalOutput" :key="index" class="terminal-line">
-                    {{ line }}
+        <div v-if="terminalShow === true" class="content-container">
+            <div class="content custom-scroll" :style="{ height: contentHeight + 'vh' }">
+                <div class="resize-handle" @click="resizeContent()">
+                    <svg t="1732635046067" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2725" width="200" height="200">
+                        <path
+                            d="M863.744 896h-224.256c-17.92 0-31.744-14.336-31.744-31.744s14.336-31.744 31.744-31.744h192.512v-640h-640v190.976c0 17.92-14.336 32.256-32.256 32.256S128 400.896 128 383.488V160.256c0-17.92 14.336-32.256 32.256-32.256h704c17.92 0 31.744 14.336 31.744 32.256v704c0 17.408-14.336 31.744-32.256 31.744z"
+                            p-id="2726"></path>
+                        <path
+                            d="M482.304 896h-322.56c-17.92 0-32.256-14.336-32.256-31.744v-322.56c0-17.92 14.336-32.256 32.256-32.256h322.56c17.92 0 32.256 14.336 32.256 32.256v322.56c0 17.408-14.336 31.744-32.256 31.744z m-290.304-64H450.56V573.44H192v258.56z"
+                            p-id="2727"></path>
+                    </svg>
+                </div>
+                <div class="content-inner">
+                    <div v-for="(line, index) in terminalOutput" :key="index" class="terminal-line">
+                        {{ line }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,17 +51,37 @@ import { useMainStore } from '../stores/mainStore';
 const mainStore = useMainStore();
 const terminalShow = computed(() => mainStore.terminalShow);
 
-// The output of the terminal
+// Terminal output state
 const terminalOutput = ref([]);
+
+// Dynamic height state
+const contentHeight = ref(27);
+const minHeight = 27;
+const maxHeight = 50;
+
+let largerTerminal = false;
+let startY = 0;
+let startHeight = 0;
+
+// Resize content
+function resizeContent() {
+    if (!largerTerminal) {
+        contentHeight.value = maxHeight;
+        largerTerminal = true
+    } else {
+        contentHeight.value = minHeight;
+        largerTerminal = false;
+    }
+};
 
 // Listen to main process
 onMounted(() => {
-    electron.ipcRenderer.on('terminal-clear', (event, data) => {
+    electron.ipcRenderer.on('terminal-clear', () => {
         terminalOutput.value = [];
     });
 
     electron.ipcRenderer.on('terminal-output', (event, data) => {
-        mainStore.setTerminalShow(true)
+        mainStore.setTerminalShow(true);
         terminalOutput.value.push(data);
 
         // Keep showing the newest

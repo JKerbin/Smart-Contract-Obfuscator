@@ -26,13 +26,11 @@
 .terminal-status svg {
     height: 15px;
     width: 15px;
-    fill: #8cba93
+    fill: #8cba93;
 }
 
 .terminal-status svg:hover {
-    height: 15px;
-    width: 15px;
-    fill: var(--font-color)
+    fill: var(--font-color);
 }
 
 .unshow-terminal svg {
@@ -43,8 +41,40 @@
     margin-left: 20px;
 }
 
+/* Container for content and resize handle */
+.content-container {
+    position: relative;
+    width: 80vw;
+}
+
+/* Resize handle */
+.resize-handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: ns-resize;
+    z-index: 10;
+}
+
+.resize-handle svg {
+    width: 30px;
+    height: 30px;
+    fill: #8cba93;
+}
+
+.resize-handle svg:hover {
+    width: 30px;
+    height: 30px;
+    fill: var(--font-color);
+}
+
 .content {
-    height: 27vh;
+    max-height: 50vh;
+    min-height: 27vh;
     width: 80vw;
     overflow-y: auto;
     overflow-x: auto;
@@ -53,12 +83,12 @@
     background-color: var(--board-color);
     color: var(--font-color);
     border-top: 1px solid #8cba93;
+    transition: height 0.2s ease;
 }
 
 .content-inner {
     margin-left: 5px;
     margin-top: 5px;
-    height: 0;
 }
 
 .terminal-line {
@@ -70,7 +100,6 @@
 .custom-scroll::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
