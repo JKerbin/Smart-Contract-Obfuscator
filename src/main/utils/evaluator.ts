@@ -1,6 +1,6 @@
 import path from 'path';
+import fs from 'fs';
 
-const fs = require('fs').promises;
 const { SolidityMetricsContainer } = require('solidity-code-metrics');
 
 let options = {
@@ -16,9 +16,8 @@ let options = {
     }
 }
 
-let metrics = new SolidityMetricsContainer("metricsContainerName", options);
-
-export const evaluateTargetFile = async (mainWindow, directoryPath, projectName, fileName) => {
+export const evaluateTargetFile = (mainWindow, directoryPath, projectName, fileName) => {
+    let metrics = new SolidityMetricsContainer("metricsContainerName", options);
     mainWindow.webContents.send('terminal-clear');
     mainWindow.webContents.send('terminal-output', "Event: Evaluate target file");
     try {
@@ -28,13 +27,22 @@ export const evaluateTargetFile = async (mainWindow, directoryPath, projectName,
 
         metrics.analyze(targetFile);
 
-        let evaluateResult = await metrics.generateReportMarkdown();
-
-        const outputFilePath = path.join(projectsDir, 'Evaluation-Records.md')
-
-        // 将 evaluateResult 写入新文件
-        await fs.writeFile(outputFilePath, evaluateResult, 'utf8');
-        mainWindow.webContents.send('terminal-output', `Evaluation result saved to ${outputFilePath}`);
+        let evaluateResult = metrics.totals()['avg'];
+        mainWindow.webContents.send('terminal-output', `Evaluation Result For ${projectName}/${fileName}:`);
+        mainWindow.webContents.send('terminal-output', '___________________________________________');
+        mainWindow.webContents.send('terminal-output', `Total Lines:         | ${evaluateResult['sloc']['total']}`);
+        mainWindow.webContents.send('terminal-output', `Source-code Lines:   | ${evaluateResult['sloc']['source']}`);
+        mainWindow.webContents.send('terminal-output', `Comment Lines:       | ${evaluateResult['sloc']['comment']}`);
+        mainWindow.webContents.send('terminal-output', `Single Comments:     | ${evaluateResult['sloc']['single']}`);
+        mainWindow.webContents.send('terminal-output', `Block Comments:      | ${evaluateResult['sloc']['block']}`);
+        mainWindow.webContents.send('terminal-output', `Mixed Comments:      | ${evaluateResult['sloc']['mixed']}`);
+        mainWindow.webContents.send('terminal-output', `TODO Comments:       | ${evaluateResult['sloc']['todo']}`);
+        mainWindow.webContents.send('terminal-output', '___________________________________________');
+        mainWindow.webContents.send('terminal-output', `* Complexity Score:  | ${evaluateResult['complexity']['perceivedNaiveScore']}`);
+        mainWindow.webContents.send('terminal-output', '___________________________________________');
+        mainWindow.webContents.send('terminal-output', 'PS: "Complexity Score" is a custom complexity score Solidity-Code-Metrics evaluation tool.');
+        mainWindow.webContents.send('terminal-output', '    It is derived from code statements that are known to introduce code complexity (branches, loops, calls, external interfaces, ...).');
+        mainWindow.webContents.send('terminal-output', '    For more information about Solid-Code-metrics, refer to: "https://github.com/Consensys/solidity-metrics".');
     } catch (error) {
         mainWindow.webContents.send('terminal-output', error);
     }
