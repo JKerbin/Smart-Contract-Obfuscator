@@ -1,5 +1,4 @@
 import path from 'path';
-import fs from 'fs';
 
 const { SolidityMetricsContainer } = require('solidity-code-metrics');
 
