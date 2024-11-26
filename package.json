@@ -27,6 +27,7 @@
     "bootstrap-vue-3": "^0.5.1",
     "d3": "^7.9.0",
     "pinia": "^2.2.6",
+    "solidity-code-metrics": "^0.0.27",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {

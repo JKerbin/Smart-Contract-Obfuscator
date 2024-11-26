@@ -5,6 +5,7 @@ import icon from '../../resources/icon.png?asset'
 import { loadInFile, getProjects } from './utils/projectsReader';
 import { importProject, deleteProject, openExplorer } from './utils/projectsHandler';
 import { obfuscateTargetProject } from "./utils/obfuscatior";
+import { evaluateTargetFile } from "./utils/evaluator";
 
 let mainWindow;
 
@@ -63,6 +64,10 @@ function createWindow(): void {
 app.whenReady().then(() => {
   ipcMain.handle('obfuscate', async (_event, directoryPath: string, projectName: string) => {
     obfuscateTargetProject(mainWindow, directoryPath, projectName);
+  });
+
+  ipcMain.handle('evaluate', async (_event, directoryPath: string, projectName: string, fileName: string) => {
+    evaluateTargetFile(mainWindow, directoryPath, projectName, fileName);
   });
 
   ipcMain.handle('import', async (_event, directoryPath: string) => {
