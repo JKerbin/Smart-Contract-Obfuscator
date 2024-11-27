@@ -66,10 +66,6 @@
       {
         "from": "projects",
         "to": "projects"
-      },
-      {
-        "from": "scripts",
-        "to": "scripts"
       }
     ],
     "win": {
