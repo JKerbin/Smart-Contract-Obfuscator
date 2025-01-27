@@ -1,6 +1,4 @@
-<h1 align="center">electron-app</h1>
-
-<p align="center">An Electron application with Vue3 and TypeScript</p>
+![image](https://github.com/user-attachments/assets/0e13cb35-dce0-4ecc-9fc9-6287fc82cdfe)
 
 <p align="center">
 <img src="https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/electron" alt="electron-version">
@@ -11,38 +9,23 @@
 <img src="https://img.shields.io/github/package-json/dependency-version/alex8088/electron-vite-boilerplate/dev/typescript" alt="typescript-version" />
 </p>
 
-<p align='center'>
-<img src='./build/electron-vite-vue-ts.png'/>
-</p>
-
 ## Features
-
-- 💡 Optimize asset handling
-- 🚀 Fast HMR for renderer processes
-- 🔥 Hot reloading for main process and preload scripts
-- 🔌 Easy to debug
-- 🔒 Compile to v8 bytecode to protect source code
+![image](https://github.com/user-attachments/assets/11027d35-4991-4f60-809e-7002b8c57aac)
+- 🚀 *Consolidation of Best Practices:*
+    - Aggregate and implement state-of-the-art smart contract obfuscation and security evaluation techniques.
+- 💡 *Integrated Software Design:*
+    - Develop software that combines code obfuscation, security evaluation, file management, and syntax tree visualization functionalities. 
+- 🥰 *User-Friendly Interface:*
+    - Create a visualized interface that enables smart contract developers to quickly and effectively utilize our software.
 
 ## Getting Started
+- Read [documentation](./SCO%20Technical%20Documentation.pdf) for more details.
+- **Download and install our installer to get started quickly.**
+    - [SCO installer download link](https://github.com/SCO-Project/SCO-Electron-Based/releases/download/v1.0.0/SCO-1.0.0.exe)
 
-Read [documentation](https://electron-vite.org/) for more details.
+![image-1](https://github.com/user-attachments/assets/deafb658-198b-414e-ae68-11a26e884a15)
 
-- [Configuring](https://electron-vite.org/config/)
-- [Development](https://electron-vite.org/guide/dev.html)
-- [Asset Handling](https://electron-vite.org/guide/assets.html)
-- [HMR](https://electron-vite.org/guide/hmr.html) & [Hot Reloading](https://electron-vite.org/guide/hot-reloading.html)
-- [Debugging](https://electron-vite.org/guide/debugging.html)
-- [Source code protection](https://electron-vite.org/guide/source-code-protection.html)
-- [Distribution](https://electron-vite.org/guide/distribution.html)
-- [Troubleshooting](https://electron-vite.org/guide/troubleshooting.html)
-
-You can also use the [create-electron](https://github.com/alex8088/quick-start/tree/master/packages/create-electron) tool to scaffold your project for other frameworks (e.g. `React`, `Svelte` or `Solid`).
-
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)
-
-## Project Setup
+## Source code running and deployment
 
 ### Install
 
@@ -59,18 +42,5 @@ $ npm run dev
 ### Build
 
 ```bash
-# For windows
 $ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
 ```
-
-## Examples
-
-- [electron-vite-bytecode-example](https://github.com/alex8088/electron-vite-bytecode-example), source code protection
-- [electron-vite-decorator-example](https://github.com/alex8088/electron-vite-decorator-example), typescipt decorator
-- [electron-vite-worker-example](https://github.com/alex8088/electron-vite-worker-example), worker and fork
