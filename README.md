@@ -24,7 +24,7 @@
 - 🥰 *User-Friendly Interface:*
     - Create a visualized interface that enables smart contract developers to quickly and effectively utilize our software.
  
-![image](https://github.com/user-attachments/assets/11027d35-4991-4f60-809e-7002b8c57aac)
+![image](https://github.com/user-attachments/assets/9932a6dc-cf4a-4f5b-8176-5f92a7c879ed)
 
 ## Source code running and deployment
 
