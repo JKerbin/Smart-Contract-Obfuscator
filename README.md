@@ -21,7 +21,7 @@
 ## Getting Started
 - Read [documentation](./SCO%20Technical%20Documentation.pdf) for more details.
 - **Download and install our installer to get started quickly.**
-    - [SCO installer download link](https://github.com/SCO-Project/SCO-Electron-Based/releases/download/v1.0.0/SCO-1.0.0.exe)
+    - [SCO installer download link](https://github.com/JKerbin/SCO-Electron-Based/releases/tag/installer)
 
 ![image-1](https://github.com/user-attachments/assets/deafb658-198b-414e-ae68-11a26e884a15)
 
