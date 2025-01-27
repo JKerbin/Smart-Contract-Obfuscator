@@ -14,7 +14,7 @@
     - [SCO installer download link](https://github.com/JKerbin/SCO-Electron-Based/releases/tag/installer)
 - Read [documentation](./SCO%20Technical%20Documentation.pdf) for more details.
 
-![image-1](https://github.com/user-attachments/assets/deafb658-198b-414e-ae68-11a26e884a15)
+![image](https://github.com/user-attachments/assets/901f9268-4b6c-4bd6-b979-c27ad0d50f03)
 
 ## Features
 - 🚀 *Consolidation of Best Practices:*
