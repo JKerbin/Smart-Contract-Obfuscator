@@ -37,3 +37,6 @@ $ npm run dev
 # Package build source code(Currently, only Windows is supported)
 $ npm run build:win
 ```
+
+## Licence
+![image](https://github.com/user-attachments/assets/a4519c25-030d-48d0-ac44-30d9c6f9388f)
