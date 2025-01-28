@@ -38,5 +38,5 @@ $ npm run dev
 $ npm run build:win
 ```
 
-## Licence
+## License
 ![image](https://github.com/user-attachments/assets/a4519c25-030d-48d0-ac44-30d9c6f9388f)
