@@ -32,13 +32,17 @@
                 <div class="head-bar">
                     <span>- PROJECTS</span>
                 </div>
-                <Files />
+                <div class="item-container overflow-auto">
+                    <Files />
+                </div>
             </div>
             <div class="viewer" v-else-if="explore === 'setting'">
                 <div class="head-bar">
                     <span>- SETTINGS</span>
                 </div>
-                <Setting />
+                <div class="item-container overflow-auto">
+                    <Setting />
+                </div>
             </div>
         </div>
     </div>

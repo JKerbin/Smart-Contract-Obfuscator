@@ -54,3 +54,22 @@
     font-weight: 700;
     color: var(--font-color);
 }
+
+.item-container {
+    height: 86vh;
+    width: 100%;
+}
+
+.overflow-auto::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+    background-color: #8cba93;
+    border-radius: 5px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+    background-color: var(--bar-color);
+}
